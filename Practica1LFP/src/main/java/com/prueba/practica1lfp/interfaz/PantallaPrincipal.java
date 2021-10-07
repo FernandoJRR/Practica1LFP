@@ -319,7 +319,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                         erroresTextArea.append(tokens.get(i).lexema()+" | ");
                                         erroresTextArea.append(tokens.get(i).posicion()[0]+":"+tokens.get(i).posicion()[1]);
                                         if (tokens.get(i+1)!=null && !tokens.get(i+1).tipoToken().equals("ERROR")) {
-                                                erroresTextArea.append(" | Recuperado |");
+                                                erroresTextArea.append(" <- Pero se Recupera | ");
                                                 erroresTextArea.append(tokens.get(i+1).tipoToken()+" | ");
                                                 erroresTextArea.append(tokens.get(i+1).lexema()+" | ");
                                         }
