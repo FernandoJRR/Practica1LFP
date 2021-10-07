@@ -54,10 +54,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 jScrollPane4 = new javax.swing.JScrollPane();
                 recuentoTokensTextArea = new javax.swing.JTextArea();
                 reporteErroresPanel = new javax.swing.JPanel();
-                jScrollPane3 = new javax.swing.JScrollPane();
-                erroresTextArea = new javax.swing.JTextArea();
                 jLabel2 = new javax.swing.JLabel();
                 jButton3 = new javax.swing.JButton();
+                jScrollPane5 = new javax.swing.JScrollPane();
+                erroresTextArea = new javax.swing.JTextArea();
                 analizarButton = new javax.swing.JButton();
                 jPanel3 = new javax.swing.JPanel();
                 patronTextField = new javax.swing.JTextField();
@@ -181,23 +181,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 reporteErroresPanel.setVisible(false);
                 reporteErroresPanel.setLayout(new java.awt.GridBagLayout());
 
-                erroresTextArea.setEditable(false);
-                erroresTextArea.setColumns(20);
-                erroresTextArea.setRows(5);
-                jScrollPane3.setViewportView(erroresTextArea);
-
-                gridBagConstraints = new java.awt.GridBagConstraints();
-                gridBagConstraints.gridx = 0;
-                gridBagConstraints.gridy = 1;
-                gridBagConstraints.gridwidth = 2;
-                gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-                gridBagConstraints.ipadx = 442;
-                gridBagConstraints.ipady = 93;
-                gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                gridBagConstraints.weightx = 1.0;
-                gridBagConstraints.weighty = 1.0;
-                reporteErroresPanel.add(jScrollPane3, gridBagConstraints);
-
                 jLabel2.setText("Reporte Errores");
                 gridBagConstraints = new java.awt.GridBagConstraints();
                 gridBagConstraints.gridx = 0;
@@ -218,6 +201,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
                 gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 20);
                 reporteErroresPanel.add(jButton3, gridBagConstraints);
+
+                erroresTextArea.setEditable(false);
+                erroresTextArea.setColumns(20);
+                erroresTextArea.setRows(5);
+                jScrollPane5.setViewportView(erroresTextArea);
+
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.gridx = 0;
+                gridBagConstraints.gridy = 1;
+                gridBagConstraints.gridwidth = 2;
+                gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+                gridBagConstraints.ipadx = 442;
+                gridBagConstraints.ipady = 93;
+                gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+                gridBagConstraints.weightx = 1.0;
+                gridBagConstraints.weighty = 1.0;
+                reporteErroresPanel.add(jScrollPane5, gridBagConstraints);
 
                 gridBagConstraints = new java.awt.GridBagConstraints();
                 gridBagConstraints.gridx = 0;
@@ -313,17 +313,22 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 erroresTextArea.setText("");
                 if (editorTextArea.getText().trim().length()>0) {
                         tokens = Tokenizador.tokenizar(editorTextArea.getText());
-                        for (Token token : tokens) {
-                                if (token.tipoToken().equals("ERROR")) {
-                                        erroresTextArea.append(token.tipoToken()+" | ");
-                                        erroresTextArea.append(token.lexema()+" | ");
-                                        erroresTextArea.append(token.posicion()[0]+":"+token.posicion()[1]);
+                        for (int i=0; i<tokens.size(); i++) {
+                                if (tokens.get(i).tipoToken().equals("ERROR")) {
+                                        erroresTextArea.append(tokens.get(i).tipoToken()+" | ");
+                                        erroresTextArea.append(tokens.get(i).lexema()+" | ");
+                                        erroresTextArea.append(tokens.get(i).posicion()[0]+":"+tokens.get(i).posicion()[1]);
+                                        if (tokens.get(i+1)!=null && !tokens.get(i+1).tipoToken().equals("ERROR")) {
+                                                erroresTextArea.append(" | Recuperado |");
+                                                erroresTextArea.append(tokens.get(i+1).tipoToken()+" | ");
+                                                erroresTextArea.append(tokens.get(i+1).lexema()+" | ");
+                                        }
                                         erroresTextArea.append("\n");
                                         
                                 }else{
-                                        tokensTextArea.append(token.tipoToken()+" | ");
-                                        tokensTextArea.append(token.lexema()+" | ");
-                                        tokensTextArea.append(token.posicion()[0]+":"+token.posicion()[1]);
+                                        tokensTextArea.append(tokens.get(i).tipoToken()+" | ");
+                                        tokensTextArea.append(tokens.get(i).lexema()+" | ");
+                                        tokensTextArea.append(tokens.get(i).posicion()[0]+":"+tokens.get(i).posicion()[1]);
                                         tokensTextArea.append("\n");
                                 }
                         }
@@ -414,8 +419,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         private javax.swing.JPanel jPanel3;
         private javax.swing.JScrollPane jScrollPane1;
         private javax.swing.JScrollPane jScrollPane2;
-        private javax.swing.JScrollPane jScrollPane3;
         private javax.swing.JScrollPane jScrollPane4;
+        private javax.swing.JScrollPane jScrollPane5;
         private javax.swing.JButton limpiarButton;
         private javax.swing.JTextField patronTextField;
         private javax.swing.JTextArea recuentoTokensTextArea;

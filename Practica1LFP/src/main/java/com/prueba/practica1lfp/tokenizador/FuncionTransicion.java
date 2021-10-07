@@ -7,7 +7,7 @@ public class FuncionTransicion {
     static Object[][] transiciones = {
         {'A',Alfabeto.LETRAS,'B'}, {'A',Alfabeto.DIGITOS,'C'}, {'A',Alfabeto.SIGNOS_PUNTUACION,'F'},{'A',Alfabeto.AGRUPADOR,'G'},{'A',Alfabeto.OPERADOR,'H'},{'A',Alfabeto.ESPECIAL,'A'},
         {'B',Alfabeto.LETRAS,'B'}, {'B',Alfabeto.DIGITOS,'B'}, {'B',Alfabeto.SIGNOS_PUNTUACION,'F'},{'B',Alfabeto.AGRUPADOR,'G'},{'B',Alfabeto.OPERADOR,'H'},{'B',Alfabeto.ESPECIAL,'A'},
-        {'C',Alfabeto.LETRAS,'A'}, {'C',Alfabeto.DIGITOS,'C'}, {'C',Alfabeto.PUNTUACION_SIN_PUNTO,'F'},{'C',Alfabeto.AGRUPADOR,'G'},{'C',Alfabeto.OPERADOR,'G'},{'C',Alfabeto.ESPECIAL,'A'},{'C',Alfabeto.PUNTO,'D'},
+        {'C',Alfabeto.LETRAS,'X'}, {'C',Alfabeto.DIGITOS,'C'}, {'C',Alfabeto.PUNTUACION_SIN_PUNTO,'F'},{'C',Alfabeto.AGRUPADOR,'G'},{'C',Alfabeto.OPERADOR,'G'},{'C',Alfabeto.ESPECIAL,'A'},{'C',Alfabeto.PUNTO,'D'},
         {'D',Alfabeto.LETRAS,'X'}, {'D',Alfabeto.DIGITOS,'E'}, {'D',Alfabeto.SIGNOS_PUNTUACION,'X'},{'D',Alfabeto.AGRUPADOR,'X'},{'D',Alfabeto.OPERADOR,'H'},{'D',Alfabeto.ESPECIAL,'A'},
         {'E',Alfabeto.LETRAS,'A'}, {'E',Alfabeto.DIGITOS,'E'}, {'E',Alfabeto.SIGNOS_PUNTUACION,'F'},{'E',Alfabeto.AGRUPADOR,'G'},{'E',Alfabeto.OPERADOR,'H'},{'E',Alfabeto.ESPECIAL,'A'},
         {'F',Alfabeto.LETRAS,'B'}, {'F',Alfabeto.DIGITOS,'C'}, {'F',Alfabeto.SIGNOS_PUNTUACION,'F'},{'F',Alfabeto.AGRUPADOR,'G'},{'F',Alfabeto.OPERADOR,'H'},{'F',Alfabeto.ESPECIAL,'A'},
