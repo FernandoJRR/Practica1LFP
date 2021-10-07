@@ -6,6 +6,7 @@
 package com.prueba.practica1lfp.interfaz;
 
 import com.prueba.practica1lfp.ManejadorArchivos;
+import com.prueba.practica1lfp.busqueda.BuscadorPatron;
 import com.prueba.practica1lfp.tokenizador.Token;
 import com.prueba.practica1lfp.tokenizador.Tokenizador;
 
@@ -58,6 +59,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 jLabel2 = new javax.swing.JLabel();
                 jButton3 = new javax.swing.JButton();
                 analizarButton = new javax.swing.JButton();
+                jPanel3 = new javax.swing.JPanel();
+                patronTextField = new javax.swing.JTextField();
+                buscarButton = new javax.swing.JButton();
+                limpiarButton = new javax.swing.JButton();
                 jMenuBar1 = new javax.swing.JMenuBar();
                 jMenu1 = new javax.swing.JMenu();
                 cargarButtonMenu = new javax.swing.JMenuItem();
@@ -96,9 +101,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
                 gridBagConstraints = new java.awt.GridBagConstraints();
                 gridBagConstraints.gridx = 0;
-                gridBagConstraints.gridy = 1;
-                gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-                gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+                gridBagConstraints.gridy = 2;
+                gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
                 getContentPane().add(jPanel2, gridBagConstraints);
 
                 reporteTokensPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -217,8 +221,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
                 gridBagConstraints = new java.awt.GridBagConstraints();
                 gridBagConstraints.gridx = 0;
-                gridBagConstraints.gridy = 5;
-                gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+                gridBagConstraints.gridy = 4;
+                gridBagConstraints.ipadx = 8;
                 gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
                 getContentPane().add(reporteErroresPanel, gridBagConstraints);
 
@@ -230,10 +234,49 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 });
                 gridBagConstraints = new java.awt.GridBagConstraints();
                 gridBagConstraints.gridx = 0;
-                gridBagConstraints.gridy = 0;
-                gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-                gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+                gridBagConstraints.gridy = 1;
+                gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
                 getContentPane().add(analizarButton, gridBagConstraints);
+
+                jPanel3.setLayout(new java.awt.GridBagLayout());
+
+                patronTextField.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                patronTextFieldActionPerformed(evt);
+                        }
+                });
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.gridx = 0;
+                gridBagConstraints.gridy = 0;
+                gridBagConstraints.ipadx = 256;
+                jPanel3.add(patronTextField, gridBagConstraints);
+
+                buscarButton.setText("Buscar");
+                buscarButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                buscarButtonActionPerformed(evt);
+                        }
+                });
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.gridx = 1;
+                gridBagConstraints.gridy = 0;
+                gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+                gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+                jPanel3.add(buscarButton, gridBagConstraints);
+
+                limpiarButton.setText("Limpiar");
+                limpiarButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                limpiarButtonActionPerformed(evt);
+                        }
+                });
+                jPanel3.add(limpiarButton, new java.awt.GridBagConstraints());
+
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.gridx = 0;
+                gridBagConstraints.gridy = 0;
+                gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+                getContentPane().add(jPanel3, gridBagConstraints);
 
                 jMenu1.setText("Archivo");
 
@@ -339,9 +382,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 }
         }//GEN-LAST:event_guardarButtonMenuActionPerformed
 
+        private void patronTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patronTextFieldActionPerformed
+                // TODO add your handling code here:
+        }//GEN-LAST:event_patronTextFieldActionPerformed
+
+        private void buscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarButtonActionPerformed
+                BuscadorPatron.removerResaltado(editorTextArea);
+                BuscadorPatron.buscarPatron(editorTextArea, patronTextField.getText());
+        }//GEN-LAST:event_buscarButtonActionPerformed
+
+        private void limpiarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarButtonActionPerformed
+                BuscadorPatron.removerResaltado(editorTextArea);
+        }//GEN-LAST:event_limpiarButtonActionPerformed
+
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JButton analizarButton;
+        private javax.swing.JButton buscarButton;
         private javax.swing.JMenuItem cargarButtonMenu;
         public javax.swing.JTextArea editorTextArea;
         private javax.swing.JTextArea erroresTextArea;
@@ -354,10 +411,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         private javax.swing.JMenu jMenu1;
         private javax.swing.JMenuBar jMenuBar1;
         private javax.swing.JPanel jPanel2;
+        private javax.swing.JPanel jPanel3;
         private javax.swing.JScrollPane jScrollPane1;
         private javax.swing.JScrollPane jScrollPane2;
         private javax.swing.JScrollPane jScrollPane3;
         private javax.swing.JScrollPane jScrollPane4;
+        private javax.swing.JButton limpiarButton;
+        private javax.swing.JTextField patronTextField;
         private javax.swing.JTextArea recuentoTokensTextArea;
         private javax.swing.JPanel reporteErroresPanel;
         private javax.swing.JPanel reporteTokensPanel;
